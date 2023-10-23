@@ -5,7 +5,6 @@ import "dotenv/config";
 import playerRoute from "./routes/playerRoute.js";
 
 
-
 const app = express();
 app.use(express.json());
 app.use(cors());
