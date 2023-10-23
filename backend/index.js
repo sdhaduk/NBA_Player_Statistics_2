@@ -1,19 +1,40 @@
 import express from 'express';
 import cors from 'cors';
-import mysql from 'mysql2';
-import "dotenv/config"
+import mongoose from 'mongoose';
+import "dotenv/config";
+import {Player} from "./models/playerModel.js"
+
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.listen(process.env.PORT, () => {
-    console.log(`Listening on port: ${process.env.PORT}`)
+mongoose.connect(process.env.MONGODB_URI)
+.then(() => {
+    console.log('Connected to database');
+    app.listen(process.env.PORT, () => {
+        console.log(`listening on port ${process.env.PORT}`);
+    });
+})
+.catch((err) => {
+    console.log(err);
 });
 
-app.get("/", (req, res) => {
-    return res.status(234).send('hi');
+
+app.get('/players/:name', async (req, res) => {
+    const {name} = req.params;
+    const player = await Player.findOne({player: name})
+    return res.status(200).json(player);
 });
+
+app.get('/players', async(req, res) => {
+    const players = await Player.find({})
+    return res.status(200).json(players);
+})
+
+
+
+
 
 
 
