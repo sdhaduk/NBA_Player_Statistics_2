@@ -2,7 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import "dotenv/config";
-import {Player} from "./models/playerModel.js"
+import playerRoute from "./routes/playerRoute.js";
+
 
 
 const app = express();
@@ -20,17 +21,9 @@ mongoose.connect(process.env.MONGODB_URI)
     console.log(err);
 });
 
+app.use('/players', playerRoute);
 
-app.get('/players/:name', async (req, res) => {
-    const {name} = req.params;
-    const player = await Player.findOne({player: name})
-    return res.status(200).json(player);
-});
 
-app.get('/players', async(req, res) => {
-    const players = await Player.find({})
-    return res.status(200).json(players);
-})
 
 
 
