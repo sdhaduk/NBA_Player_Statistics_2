@@ -281,7 +281,12 @@ const PlayerTable = ({ players, darkModeOn, darkModeOff }) => {
       </Paper>
       <Grid container sx={{justifyContent: 'center', mt: 5}}>
         <Stack direction="row" spacing={20}>
-        <Button variant="outlined" sx={tableDarkModeOn ? darkModeButton : lightModeButton}
+        <Button 
+        variant="outlined" 
+        sx={tableDarkModeOn ? darkModeButton : lightModeButton}
+        to="/compare-two-players"
+        component={Link}
+        
         >
         Compare Two Players
         </Button>
@@ -290,7 +295,11 @@ const PlayerTable = ({ players, darkModeOn, darkModeOff }) => {
         <FormControlLabel control={<Switch onClick={tableDarkModeOn ? setDarkModeOff : setDarkModeOn}/>} label="Dark Mode" />
         </FormGroup>
 
-        <Button variant="outlined" sx={tableDarkModeOn ? darkModeButton : lightModeButton}
+        <Button 
+        variant="outlined" 
+        sx={tableDarkModeOn ? darkModeButton : lightModeButton}
+        to='/get-top-players'
+        component={Link}
         >
         Get the top players
         </Button>
