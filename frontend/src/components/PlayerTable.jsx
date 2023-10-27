@@ -9,9 +9,17 @@ import {
   Paper,
   TablePagination,
   Grid,
+  Stack,
+  Button,
+  FormGroup, 
+  FormControlLabel,
+  Switch
 } from "@mui/material";
+import { darken } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
-const PlayerTable = ({ players }) => {
+const PlayerTable = ({ players, darkModeOn, darkModeOff }) => {
+
   const columns = [
     { id: "player", label: "Name", minWidth: 170, align: "center" },
 
@@ -174,7 +182,7 @@ const PlayerTable = ({ players }) => {
       blk_per_game,
     };
   };
-
+  
   const rows = [];
   const createRows = () => {
     players.map((player) => {
@@ -183,9 +191,23 @@ const PlayerTable = ({ players }) => {
             player.x3p_percent, player.x2p_percent, player.fg_percent, player.e_fg_percent, player.ft_percent, player.orb_per_game, player.drb_per_game, player.trb_per_game, player.ast_per_game, player.stl_per_game, player.blk_per_game));
       });
   };
+  const darkModeButton = {color: 'white', border: '1px white solid', "&:hover": {backgroundColor: darken("#FFFFFF", 0.3), borderColor: 'white'}}
 
+  const lightModeButton = {color: 'black', border: '1px black solid', "&:hover": {backgroundColor: darken("#FFFFFF", 0.3), borderColor: 'black'}}
+
+  const [tableDarkModeOn, setTableDarkMode] = useState(false)
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  const setDarkModeOn = () => {
+    darkModeOn();
+    setTableDarkMode(true)
+  };
+
+  const setDarkModeOff = () => {
+    darkModeOff();
+    setTableDarkMode(false);
+  };
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -199,9 +221,9 @@ const PlayerTable = ({ players }) => {
   createRows();
 
   return (
-    <Grid container sx={{ mt: 5, mx: 15 }}>
+    <Grid container sx={{ mt: 5, mx: 15 }} spacing={2}>
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
-        <TableContainer sx={{ maxHeight: 400 }}>
+        <TableContainer sx={{ maxHeight: 650 }}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
@@ -211,7 +233,6 @@ const PlayerTable = ({ players }) => {
                     align={column.align}
                     style={{
                       width: column.minWidth,
-                      background: "#E0E0E0",
                       fontWeight: "bold",
                       fontSize: "18px",
                     }}
@@ -258,6 +279,23 @@ const PlayerTable = ({ players }) => {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
+      <Grid container sx={{justifyContent: 'center', mt: 5}}>
+        <Stack direction="row" spacing={20}>
+        <Button variant="outlined" sx={tableDarkModeOn ? darkModeButton : lightModeButton}
+        >
+        Compare Two Players
+        </Button>
+
+        <FormGroup>
+        <FormControlLabel control={<Switch onClick={tableDarkModeOn ? setDarkModeOff : setDarkModeOn}/>} label="Dark Mode" />
+        </FormGroup>
+
+        <Button variant="outlined" sx={tableDarkModeOn ? darkModeButton : lightModeButton}
+        >
+        Get the top players
+        </Button>
+        </Stack>
+      </Grid>
     </Grid>
   );
 };

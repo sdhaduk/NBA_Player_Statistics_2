@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import {
   Grid,
   Typography,
-  useStepContext,
 } from "@mui/material";
 import PlayerTable from "../components/PlayerTable";
 import Loading from "../components/Loading";
 import axios from 'axios';
 
-const Home = () => {
+const Home = ({darkModeOff, darkModeOn}) => {
     
     const [players, setPlayers] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -32,7 +31,7 @@ const Home = () => {
       <Grid item xs={12} sx={{ mt: 2 }}>
         <Typography variant="h2">NBA Statistics 2023</Typography>
       </Grid>
-      {loading ? <Loading /> : <PlayerTable players={players} />}
+      {loading ? <Loading /> : <PlayerTable players={players} darkModeOn={darkModeOn} darkModeOff={darkModeOff} />}
     </Grid>
   );
 };
