@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Home from "./pages/Home.jsx";
 import ComparePlayers from "./pages/ComparePlayers.jsx";
-import GetTopPlayersForm from "./pages/GetTopPlayersForm.jsx";
+import GetTopPlayers from "./pages/GetTopPlayers.jsx";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Routes, Route } from "react-router-dom";
@@ -32,7 +32,7 @@ const App = () => {
           element={<Home darkModeOff={darkModeOff} darkModeOn={darkModeOn} />}
         />
         <Route path="/compare-two-players" element={<ComparePlayers />} />
-        <Route path="/get-top-players" element={<GetTopPlayersForm />} />
+        <Route path="/get-top-players" element={<GetTopPlayers />} />
       </Routes>
     </ThemeProvider>
   );
