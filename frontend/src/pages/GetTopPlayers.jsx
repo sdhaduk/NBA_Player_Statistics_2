@@ -81,16 +81,21 @@ const GetTopPlayersForm = ({darkMode}) => {
             </Select>
           </FormControl>
 
+          <Grid container sx={{justifyContent: 'center'}} spacing={1}>
           <Grid item>
-          <ButtonGroup>
             <Button variant="outlined" size="medium" sx={darkMode ? darkModeButton : lightModeButton} onClick={getStats}>
-              Submit
+              Select
             </Button>
+          </Grid>
+
+            <Grid item>
             <Button variant="outlined" color="error" size="medium" sx={{ mt: 1 }} to="/" component={Link}>
               Back
             </Button>
-            </ButtonGroup>
-          </Grid>
+            </Grid>
+            </Grid>
+            
+          
         </Grid>
 
         <Grid item xs={8} align="center">
