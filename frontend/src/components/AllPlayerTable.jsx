@@ -137,6 +137,7 @@ const PlayerTable = ({ players, darkModeOn, darkModeOff }) => {
     },
   ];
 
+  
   const createData = (
     player,
     season,

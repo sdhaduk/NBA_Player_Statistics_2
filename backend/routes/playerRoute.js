@@ -34,9 +34,13 @@ router.get('/stat/:statistic/:number', async (req, res) => {
     const statistic = req.params.statistic;
 
     try {
-        const players = await Player.find().sort({[statistic]:-1}).limit(number);
+        const players = await Player.find({
+            age:{$nin:[1000, 1]}, pts_per_game:{$nin:[1000, 1]}, ast_per_game:{$nin:[1000, 1]}, stl_per_game:{$nin:[1000, 1]}, 
+            blk_per_game:{$nin:[1000, 1]}, tov_per_game:{$nin:[1000, 1]}, orb_per_game:{$nin:[1000, 1]}, drb_per_game:{$nin:[1000, 1]},
+            trb_per_game:{$nin:[1000, 1]}, mp_per_game:{$nin:[1000, 1]}, fg_per_game:{$nin:[1000, 1]}, fga_per_game:{$nin:[1000, 1]}, 
+            fg_percent:{$nin:[1000, 1]}, x3p_percent:{$nin:[1000, 1]}, e_fg_percent:{$nin:[1000, 1]}, ft_percent:{$nin:[1000, 1]}}).sort({[statistic]:-1}).limit(number);
         return res.status(200).json(players);
-
+        
     } catch(err) {
         console.log(err.message)
         return res.status(500).send({message: err.message}) 

@@ -3,7 +3,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import PlayerTable from "../components/PlayerTable";
+import AllPlayerTable from "../components/AllPlayerTable";
 import Loading from "../components/Loading";
 import axios from 'axios';
 
@@ -21,7 +21,7 @@ const Home = ({darkModeOff, darkModeOn}) => {
             setLoading(false)
         })
         .catch((error) => {
-            console.log(error)
+            console.log(error.message)
             setLoading(false)
         });
     }, []);
@@ -31,7 +31,7 @@ const Home = ({darkModeOff, darkModeOn}) => {
       <Grid item xs={12} sx={{ mt: 2 }}>
         <Typography variant="h2">NBA Statistics 2023</Typography>
       </Grid>
-      {loading ? <Loading /> : <PlayerTable players={players} darkModeOn={darkModeOn} darkModeOff={darkModeOff} />}
+      {loading ? <Loading /> : <AllPlayerTable players={players} darkModeOn={darkModeOn} darkModeOff={darkModeOff} />}
     </Grid>
   );
 };
