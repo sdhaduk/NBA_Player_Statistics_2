@@ -18,7 +18,6 @@ import { darken } from '@mui/material/styles';
 
 const GetTopPlayersForm = ({darkMode}) => {
 
-  
   const [stat, setStat] = useState("");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -38,13 +37,12 @@ const GetTopPlayersForm = ({darkMode}) => {
       setLoading(false)
     });
   };
-
-
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
-    <Typography variant="h3" align="center" sx={{mt: 2}}>Top Players</Typography>
+    <Typography variant="h2" align="center" mt={2}>Top Players</Typography>
       <Grid container spacing={1} sx={{ mt: 20 }}>
-        <Grid item xs align="center" sx={{ mt: 10 }}>
+        <Grid item xs align="center" sx={{ mt: 0 }}>
           <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
             <InputLabel id="demo-simple-select-standard-label">Stat</InputLabel>
             <Select

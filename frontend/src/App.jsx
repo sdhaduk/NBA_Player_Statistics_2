@@ -7,7 +7,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { Routes, Route } from "react-router-dom";
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const darkTheme = createTheme({
     palette: {
