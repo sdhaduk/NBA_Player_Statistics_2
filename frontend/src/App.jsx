@@ -31,7 +31,7 @@ const App = () => {
           path="/"
           element={<Home darkModeOff={darkModeOff} darkModeOn={darkModeOn} />}
         />
-        <Route path="/compare-two-players" element={<ComparePlayers />} />
+        <Route path="/compare-two-players" element={<ComparePlayers darkMode={darkMode}/>} />
         <Route path="/get-top-players" element={<GetTopPlayers darkMode={darkMode}/>} />
       </Routes>
     </ThemeProvider>

@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import ComparePlayerForm from "../components/ComparePlayerForm.jsx";
-import { Box, Grid, Typography, Button } from "@mui/material";
+import { Box, Grid, Typography, Button, darken } from "@mui/material";
 import { Link } from 'react-router-dom';
-const ComparePlayers = () => {
+
+const ComparePlayers = ({darkMode}) => {
+  
   const [name, setName] = useState("");
+  const darkModeButton = {mt: 1, color: 'white', border: '1px white solid', "&:hover": {backgroundColor: darken("#FFFFFF", 0.3), borderColor: 'white'}};
+  const lightModeButton = {mt: 1, color: 'black', border: '1px black solid', "&:hover": {backgroundColor: darken("#FFFFFF", 0.3), borderColor: 'black'}};
 
   const setNameCallback = (playerName) => {
     setName(playerName);
@@ -21,20 +25,20 @@ const ComparePlayers = () => {
 
         <Grid container spacing={1} sx={{justifyContent:'center'}}>
           <Grid item>
-            <Button variant="outlined" color="primary" sx={{ mt: 1 }}>
+            <Button variant="outlined" color="primary" sx={darkMode ? darkModeButton : lightModeButton}>
               Select
             </Button>
           </Grid>
 
           <Grid item>
-            <Button variant="outlined" color="error" sx={{ mt: 1 }} to='/' component={Link}>
+            <Button variant="outlined" color="error" sx={{mt:1}} to='/' component={Link}>
               Back
             </Button>
           </Grid>
       </Grid>
 
       <Grid item align="center">
-        
+
       </Grid>
     </Box>
   );
