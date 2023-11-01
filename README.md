@@ -1,4 +1,5 @@
 # NBA_Player_Statistics_2
+#### Hosted at: https://nba-statistics-version2.netlify.app/
 
 ## Description
 * This is my full-stack project using MongoDB, Express, React, and Node.js (Material-UI for styling)
