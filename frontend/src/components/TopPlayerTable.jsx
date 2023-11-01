@@ -12,7 +12,6 @@ import {
 
 const TopPlayerTable = ({ data, stat}) => {
 
-
   const rows = [];
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -166,7 +165,11 @@ const TopPlayerTable = ({ data, stat}) => {
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  style={{ minWidth: column.minWidth }}
+                  style={{ 
+                    minWidth: column.minWidth ,
+                    fontWeight: "bold",
+                    fontSize: "18px"
+                    }}
                 >
                   {column.label}
                 </TableCell>
