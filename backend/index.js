@@ -20,6 +20,10 @@ mongoose.connect(process.env.MONGODB_URI)
     console.log(err);
 });
 
+app.get('/', (req, res) => {
+    res.status(200).json({message: "hi"})
+});
+
 app.use('/players', playerRoute);
 
 
