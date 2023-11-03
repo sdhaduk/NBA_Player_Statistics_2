@@ -12,7 +12,7 @@
 ## Demo
 https://github.com/sdhaduk/NBA_Player_Statistics_2/assets/72360579/944df0a5-d31f-46bd-b01b-8b71e56b9f5c
 
-## Run Locally on your machine
+## Run locally on your machine
 * Clone repo and
   
 ```cd backend```
