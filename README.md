@@ -1,6 +1,6 @@
 # NBA_Player_Statistics_2
 ### Please Note: 
-* The app is hosted on a free tier, so it may take up to 30 seconds to load initially because Render spins down servers after 15 minutes of inactivity.
+The app is hosted on a free tier, so it may take up to 30 seconds to load initially because Render spins down servers after 15 minutes of inactivity.
 #### Hosted at: https://nba-statistics-version2.netlify.app/
 
 
