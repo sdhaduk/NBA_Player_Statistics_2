@@ -13,25 +13,25 @@
 https://github.com/sdhaduk/NBA_Player_Statistics_2/assets/72360579/944df0a5-d31f-46bd-b01b-8b71e56b9f5c
 
 ## Run locally on your machine
-* Clone repo and
+Clone repo and
   
 ```cd backend```
  
-* Add a .env file with the following environment variables: 
+Add a .env file with the following environment variables: 
   
 ```env
 MONGO_URI = YOUR MONGO_URI
 PORT = 3000
 ```
 
-* while still in the backend directory run
+while still in the backend directory run
 
 ```
 npm install
 npm run dev
 ```
 
-* then run
+then run
 
 ```
 cd ..
@@ -40,7 +40,7 @@ npm install
 npm run dev
 ```
 
-* after following these steps a URL to localhost:5173 should appear in the terminal, click this link to visit the web application
+after following these steps a URL to localhost:5173 should appear in the terminal, click this link to visit the web application
 
 
 
